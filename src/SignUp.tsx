@@ -1,12 +1,10 @@
-import { SignedOut, SignUp } from '@clerk/react-router'
+import { SignUp } from '@clerk/react-router';
+import AuthLayout from './AuthLayout';
 
 export default function SignUpPage() {
   return (
-    <div className="min-w-screen flex justify-around items-center h-screen">
-      <div>
-        <img src="/logo/myaly-logo.png" width={600} height={600} />
-      </div>
-      <SignUp signInUrl='sign-in' />
-    </div>
+    <AuthLayout>
+      <SignUp signInUrl="/sign-in" />
+    </AuthLayout>
   );
 }
