@@ -67,7 +67,12 @@ createRoot(document.getElementById('root')!).render(
         afterSignOutUrl="/sign-in"
       >
         <QueryProvider>
-          <App />
+            <div className='flex flex-col    w-full'>
+              <header className='flex justify-end'>
+                 <UserProfile />
+               </header>
+               <App />
+             </div>
         </QueryProvider>
       </ClerkProvider>
     </BrowserRouter>
