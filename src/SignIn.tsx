@@ -6,9 +6,9 @@ export default function SignInPage() {
       <div>
         <img src="/logo/myaly-logo.png" width={600} height={600} />
       </div>
-      <SignIn  path="/login"
-              routing="path"
-              redirectUrl="/" />
+      <SignIn  
+              
+              />
 
     </div>
   )
