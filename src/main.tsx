@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { QueryProvider } from '@/providers/query-provider'
-import { ClerkProvider, SignIn, useUser } from '@clerk/clerk-react'
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import { ClerkProvider, } from '@clerk/clerk-react'
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import { dark } from '@clerk/themes'
 import SignInPage from './SignIn.tsx'
 import { BrowserRouter } from 'react-router-dom'

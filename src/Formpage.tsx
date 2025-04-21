@@ -1,23 +1,23 @@
 import { FormLayout } from "./components/layout/form-layout"
 import SplashScreen from "./components/steps/splash-screen"
-import SelectSkinType from "./components/steps/select-skin-type"
-import SelectSkinGoals from "./components/steps/select-skin-goals"
+// import SelectSkinType from "./components/steps/select-skin-type"
+// import SelectSkinGoals from "./components/steps/select-skin-goals"
 
 
 
 import { useFormStore } from "./lib/store"
 
-import EnvironmentalFactors from "./components/steps/environmental-factors"
-import ExfoliationTolerance from "./components/steps/exofiliate-tolerance"
-import { IngredientPreferences } from "./components/steps/ingredient-preferences"
+// import EnvironmentalFactors from "./components/steps/environmental-factors"
+// import ExfoliationTolerance from "./components/steps/exofiliate-tolerance"
+// import { IngredientPreferences } from "./components/steps/ingredient-preferences"
 import ItemType from "./components/steps/routine-complexity"
 import BudgetAllocation from "./components/steps/budget-allocation"
 import MakeupQuestion from "./components/steps/makeup-question"
 import LifestyleFactors from "./components/steps/lifestyle-factors"
 import LocationType from "./components/steps/age-group"
 import FinalStep from "./components/steps/final-step"
-import EthicalPreferences from "./components/steps/ethical-preferences"
-import { useAuth, useUser } from "@clerk/clerk-react"
+// import EthicalPreferences from "./components/steps/ethical-preferences"
+import {  useUser } from "@clerk/clerk-react"
 import { useEffect } from "react"
 function Formpage() {
   const currentStep = useFormStore((state) => state.currentStep)

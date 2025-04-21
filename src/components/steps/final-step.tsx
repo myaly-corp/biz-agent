@@ -10,7 +10,7 @@ import DeveloperProfile from "../developer-profile"
 import { SkincareSummarySheet } from "../skincare-sheet"
 import { useEffect, useState } from "react"
 import { useAuth, useUser } from "@clerk/clerk-react"
-import RecommendationDisplay from "./Reccomendation"
+import RecommendationDisplay from "./reccomendation"
 
 
 

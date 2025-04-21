@@ -1,5 +1,5 @@
 
-import {  FlaskConical, Brush, Moon, Apple, Circle, Clock, X, Palette, DollarSignIcon, BookCheck } from 'lucide-react';
+import {  FlaskConical, Brush, Moon, Apple, Circle, Clock, DollarSignIcon, BookCheck } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
