@@ -13,7 +13,7 @@ const ProtectedRoute = ({ children  } : ProtectedRouteProps) => {
 
   if (!isLoaded) return null; // or a loading spinner
 
-  return isSignedIn ? children : <Navigate to="/login" />;
+  return isSignedIn ? children : <Navigate to="/sign-in" />;
 };
 
 export default ProtectedRoute;
