@@ -1,0 +1,117 @@
+{
+    "name": "My workflow 9 - with monetized check",
+    "nodes": [
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "afead81e-6f7c-46d7-8734-a08551e7747f",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2,
+        "position": [-560, -240],
+        "id": "Webhook",
+        "name": "Webhook"
+      },
+      {
+        "parameters": {
+          "mode": "raw",
+          "jsonOutput": "={\n  \"budgetLevels\": \"{{ $json.body.budgetLevels }}\",\n  \"experienceLevel\": \"{{ $json.body.experienceLevel }}\",\n  \"workPatterns\": \"{{ $json.body.workPatterns }}\",\n  \"locationType\": \"{{ $json.body.locationType }}\",\n  \"marketType\": \"{{ $json.body.marketType }}\",\n  \"itemType\": \"{{ $json.body.itemType }}\",\n  \"monetized\": \"{{ $json.body.monetized }}\",\n  \"monetizationLevel\": \"{{ $json.body.monetizationLevel }}\"\n}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [-280, -240],
+        "id": "SetFields",
+        "name": "Edit Fields"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "boolean": [
+              {
+                "value1": "={{ $json[\"monetized\"] === true || $json[\"monetized\"] === 'true' }}",
+                "value2": true
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 1,
+        "position": [0, -240],
+        "id": "IfMonetized",
+        "name": "Is Monetized?"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "Your original prompt here..."
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 1.8,
+        "position": [280, -320],
+        "id": "AIAgent",
+        "name": "AI Agent"
+      },
+      {
+        "parameters": {
+          "mode": "runOnceForEachItem",
+          "jsCode": "const raw = $json.output;\nconst clean = raw.replace(/```json|```/g, \"\").trim();\nreturn { json: JSON.parse(clean) };"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [500, -320],
+        "id": "Code",
+        "name": "Code"
+      }
+    ],
+    "connections": {
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "SetFields",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "SetFields": {
+        "main": [
+          [
+            {
+              "node": "IfMonetized",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "IfMonetized": {
+        "main": [
+          [
+            {
+              "node": "AIAgent",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          []
+        ]
+      },
+      "AIAgent": {
+        "main": [
+          [
+            {
+              "node": "Code",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "active": false
+  }
+  
